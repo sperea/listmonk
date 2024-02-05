@@ -10,7 +10,7 @@ x-app-defaults: &app-defaults
   ports:
     - "9005:9000"
   networks:
-    - listmonk
+    - bridge
   environment:
     - TZ=Etc/UTC
 
