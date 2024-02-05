@@ -19,8 +19,6 @@ services:
   app:
     <<: *app-defaults
     container_name: listmonk_app
-    depends_on:
-      - db
     volumes:
       - ./config.toml:/listmonk/config.toml
 
