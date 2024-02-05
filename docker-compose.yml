@@ -4,20 +4,17 @@
 
 version: "3.7"
 
-x-app-defaults: &app-defaults
-  restart: unless-stopped
-  image: listmonk/listmonk:latest
-  ports:
-    - "9005:9000"
-  networks:
-    - bridge
-  environment:
-    - TZ=Etc/UTC
-
 services:
 
   app:
-    <<: *app-defaults
+    restart: unless-stopped
+    image: listmonk/listmonk:latest
+    ports:
+      - "9005:9000"
+    networks:
+      - bridge
+    environment:
+      - TZ=Etc/UTC
     container_name: listmonk_app
     command: [sh, -c, "yes | ./listmonk --install --config config.toml && ./listmonk --config config.toml"]
     volumes:
@@ -26,5 +23,3 @@ services:
 networks:
   bridge:
 
-volumes:
-  listmonk-data:
