@@ -8,7 +8,7 @@ x-app-defaults: &app-defaults
   restart: unless-stopped
   image: listmonk/listmonk:latest
   ports:
-    - "9000:9000"
+    - "9005:9000"
   networks:
     - listmonk
   environment:
