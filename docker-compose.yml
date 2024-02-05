@@ -19,13 +19,9 @@ services:
   app:
     <<: *app-defaults
     container_name: listmonk_app
+    command: [sh, -c, "yes | ./listmonk --install --config config.toml && ./listmonk --config config.toml"]
     volumes:
       - ./config.toml:/listmonk/config.toml
-
-  demo-app:
-    <<: *app-defaults
-    container_name: listmonk_demo_app
-    command: [sh, -c, "yes | ./listmonk --install --config config.toml && ./listmonk --config config.toml"]
 
 networks:
   bridge:
