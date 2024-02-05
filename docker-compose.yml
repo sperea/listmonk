@@ -22,16 +22,10 @@ services:
     volumes:
       - ./config.toml:/listmonk/config.toml
 
-  demo-db:
-    container_name: listmonk_demo_db
-    <<: *db-defaults
-
   demo-app:
     <<: *app-defaults
     container_name: listmonk_demo_app
     command: [sh, -c, "yes | ./listmonk --install --config config.toml && ./listmonk --config config.toml"]
-    depends_on:
-      - demo-db
 
 networks:
   bridge:
